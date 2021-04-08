@@ -1,0 +1,8 @@
+.experiments {
+    color: green;
+    border: 2px dotted green;
+    padding: 5px;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 10px;
+}

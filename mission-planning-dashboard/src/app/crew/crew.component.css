@@ -1,0 +1,13 @@
+.crew {
+    color: coral;
+    font-size: 2vw;
+    border: 3px double coral;
+    padding: 5px;
+    font-style: unset;
+    font-family: cursive;
+    margin: 30px;
+}
+
+ h3 {
+     text-align: center;
+ }
