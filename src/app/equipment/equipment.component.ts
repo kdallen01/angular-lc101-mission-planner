@@ -23,7 +23,8 @@ export class EquipmentComponent implements OnInit {
    maxItems: number = 10;
    inactive: boolean = false;
    max: boolean = false;
-   massRemaining: number = this.maximumAllowedMass - this.cargoMass;
+   //massRemaining: number = this.maximumAllowedMass - this.cargoMass;
+   itemCount: boolean = false;
 
    constructor() { }
 
@@ -31,6 +32,9 @@ export class EquipmentComponent implements OnInit {
 
    // Code your addItem function here:
    addItem (item: {name: string; mass: number}) {
+     if(this.cargoHold.includes(item)) {
+      this.itemCount = true
+    }
      this.cargoHold.push(item);
      this.cargoMass += item.mass;
      if(this.maximumAllowedMass - this.cargoMass <= 200) {
@@ -38,7 +42,15 @@ export class EquipmentComponent implements OnInit {
      }
    }
 
-    emptyCargo () {
+   removeItem(item) {
+     this.cargoHold.splice(this.cargoHold.indexOf(item),1);
+     this.cargoMass -= item.mass;
+     if(this.maximumAllowedMass + this.cargoMass > 200) {
+       this.max = false;
+     }
+   }
+   
+   emptyCargo () {
       this.cargoHold.splice(0, this.cargoHold.length);
       this.cargoMass = 0;
       this.inactive = false;
