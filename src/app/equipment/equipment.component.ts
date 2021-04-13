@@ -21,18 +21,23 @@ export class EquipmentComponent implements OnInit {
   ngOnInit() {
   }
 
-  add(part: string) {
-    this.equipment.push({part: part});
+  add(item: string) {
+    this.equipment.push({part: item});
   }
 
-  remove(part: object) {
-    let index = this.equipment.indexOf(part);
+  remove(item: object) {
+    let index = this.equipment.indexOf(item);
     this.equipment.splice(index, 1);
   }
 
 
   edit(equipment: object) {
-    this.editEquipment = equipment;
+    this.editEquipment.push(equipment);
+  }
+
+  save(item: string, part: object) {
+    part['part'] = item;
+    this.editEquipment = null;
   }
 
 }

@@ -14,6 +14,7 @@ export class CrewComponent implements OnInit {
   ];
 
   memberBeingEdited: object = null;
+  inCrew: boolean = false;
 
   constructor() { }
 
@@ -21,7 +22,23 @@ export class CrewComponent implements OnInit {
   }
 
   add(memberName: string, isFirst: boolean) {
-    this.crew.push({name: memberName, firstMission: isFirst});
+    // if(!this.crew.includes({memberName})) {
+    //   console.log(!this.crew.includes({memberName}));
+    //   this.crew.push({name: memberName, firstMission: isFirst});
+    // } else {
+    //   console.log(this.crew.includes({memberName}));
+
+    // }
+    for(let i = 0; i < this.crew.length; i++) {
+      if(memberName === this.crew[i]['name']) {
+        this.inCrew = true;
+      }
+
+      if (!this.inCrew) {
+        this.crew.push({name: memberName, firstMission: isFirst});
+      }
+      this.inCrew = false;
+    }
   }
 
   remove(member: object) {
