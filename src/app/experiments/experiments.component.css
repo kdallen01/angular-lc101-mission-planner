@@ -1,8 +1,19 @@
 .displayBox {
     height: 275px;
     width: auto;
+    border: green;
+    border-style: groove;
+    padding: 10px;
 }
 
 h3 {
     text-align: center;
+}
+
+.active {
+    background-color: green;
+}
+
+button:hover {
+    cursor: -moz-grab;
 }

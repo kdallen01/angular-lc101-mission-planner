@@ -1,10 +1,14 @@
 li:hover {
     cursor: pointer;
+    color: blue;
 }
 
 .displayBox {
     height: 275px;
     width: auto;
+    border-style: ridge;
+    border-color: pink;
+    padding: 10px;
 }
 
 img {

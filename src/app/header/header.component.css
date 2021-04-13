@@ -10,4 +10,7 @@ h2 {
 h1 {
     text-align: center;
     text-decoration: underline;
+    font-style: italic;
+    font-family: cursive;
+    color: red;
 }

@@ -2,7 +2,7 @@
     <h3>Possible Experiments</h3>
     <ul>
       <li *ngFor="let experiment of experiments">{{experiment}}
-        <button (click)=addExperiment(experiment) >Add</button>
+        <button [class.active] = "!inactive" (click)=addExperiment(experiment) [disabled] = "choosenExperiments.includes(experiment) || choosenExperiments.length === 4">Add</button>
       </li>
     </ul>
 </div>
