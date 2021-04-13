@@ -14,7 +14,8 @@ export class EquipmentComponent implements OnInit {
     {part:'Oxygen tanks'}
   ];
 
-  editEquipment: object[] = null;
+  editEquipment: object = null;
+  inEquipment = false;
 
   constructor() { }
 
@@ -22,7 +23,15 @@ export class EquipmentComponent implements OnInit {
   }
 
   add(item: string) {
-    this.equipment.push({part: item});
+    for(let i = 0; i < this.equipment.length; i++) {
+      if(item === this.equipment[i]['part']) {
+        this.inEquipment = true;
+      }
+    } 
+      if (!this.inEquipment) {
+        this.equipment.push({part: item});
+      }
+      this.inEquipment = false;
   }
 
   remove(item: object) {
@@ -31,8 +40,8 @@ export class EquipmentComponent implements OnInit {
   }
 
 
-  edit(equipment: object) {
-    this.editEquipment.push(equipment);
+  edit(item: object) {
+    this.editEquipment = item;
   }
 
   save(item: string, part: object) {
