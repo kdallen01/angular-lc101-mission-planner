@@ -17,3 +17,8 @@ h3 {
 button:hover {
     cursor: -moz-grab;
 }
+
+button:disabled,
+button[disabled] {
+    background-color: grey;   
+}
